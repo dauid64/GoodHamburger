@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using GoodHamburger.Data;
+using GoodHamburger.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddScoped<OrderService>();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<Context>(opt =>
     opt.UseInMemoryDatabase("GoodHmaburgerDb")
